@@ -44,9 +44,12 @@
       <v-toolbar-side-icon @click.stop="drawer = !drawer" light></v-toolbar-side-icon>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
+      <v-btn fab dark large class="pink fab-position">
+                <v-icon dark>add</v-icon>
+              </v-btn>
     </v-toolbar>
     <main>
-      <v-container>
+      <v-container fluid>
         <v-slide-y-transition mode="out-in">
           <v-layout column align-center>
             <v-data-table
@@ -77,13 +80,37 @@
                 <td class="text-xs-left">{{ props.item.role }}</td>
                 <td class="text-xs-left">{{ props.item.signin }}</td>
                 <td class="text-xs-left">{{ props.item.created }}</td>
+                <td class="text-xs-right">
+                  <v-btn icon class="pink--text">
+                    <v-icon>favorite</v-icon>
+                  </v-btn>
+                  <v-btn icon class="pink--text">
+                    <v-icon>edit</v-icon>
+                  </v-btn>
+                  <v-btn icon class="pink--text">
+                    <v-icon>remove</v-icon>
+                  </v-btn>
+                </td>
               </template>
             </v-data-table>
+               
 
+              <!-- <form class="lighten-3 elevation-3" style="width: 100%">
+                <h3>New User</h3>
+                <v-text-field
+                  name="input-1"
+                  label="Label Text"
+                  id="testing"
+                ></v-text-field>
+                <v-text-field
+                  name="input-1"
+                  label="Label Text"
+                  id="testing"
+                ></v-text-field>
+              </form> -->
           </v-layout>
         </v-slide-y-transition>
       </v-container>
-      
     </main>
   </v-app>
 </template>
@@ -244,8 +271,12 @@
   }
 
   .fab-position {
-    position: absolute !important;
+    position: relative;
     right: 25px;
-    bottom: 25px;
+    top: 50px;
   }
+
+  .application > main > .container {
+    min-height: auto;
+}
 </style>
